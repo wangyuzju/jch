@@ -1,0 +1,27 @@
+{
+  "name": "jch",
+  "version": "0.0.0",
+  "description": "write JavaScript/Coffeescript, CSS/LESS/SASS in a jch file and the program will automatically compile them to target files",
+  "directories":{
+    "lib": "./lib"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:wangyuzju/jch.git"
+  },
+  "keywords": [
+    "CoffeeScript",
+    "LESS",
+    "SASS",
+    "autocompile"
+  ],
+  "author": "wangyu0248",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/wangyuzju/jch/issues"
+  }
+}
