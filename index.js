@@ -1,4 +1,4 @@
-var jch = require("./lib/jch_parser");
+var jch = require("./lib/coffess_parser");
 
 
 module.exports = jch;
