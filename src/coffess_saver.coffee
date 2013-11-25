@@ -1,4 +1,4 @@
-#<script type="text/coffeescript" target="jch_saver.js">
+#<script type="text/coffeescript" target="../lib/jch_saver.js">
 fs = require 'fs'
 MD5 = require 'MD5'
 exec = (require 'child_process').exec
@@ -8,7 +8,7 @@ LOG_INFO = "\u001b[1;37m[ JCH ]\u001b[0m\t"
 ##################################
 
 pub =
-
+    
   _genContent: (id, origin, strToAdd)->
     # use this to replace the origin file with new component
     regStr = "\\/\\*_JCH_#{id.replace('/', '\\/')}[\\w\\W]*?\\/\\*_JCH_\\*\\/[\\n]?"

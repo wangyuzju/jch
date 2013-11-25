@@ -1,4 +1,4 @@
-#<script type="text/coffeescript" target="jch_parser.js">
+#<script type="text/coffeescript" target="../lib/jch_parser.js">
 fs = require 'fs'
 path = require 'path'
 exec = (require 'child_process').exec
@@ -9,8 +9,6 @@ jchSaver = require './jch_saver'
 LOG_INFO = "\u001b[1;37m[ JCH ]\u001b[0m\t"
 DEBUG = false
 ##################################
-
-
 
 tools =
     getAttribute: (domString) ->

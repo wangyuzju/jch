@@ -1,5 +1,5 @@
 {
-  "path": "lib",
+  "path": "src",
   "ignore": "",
   "host": "http://config.music.baidu.com/nodesync",
   "pathto": "/home/bae/luoqin/nodesync/"
