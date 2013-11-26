@@ -40,8 +40,8 @@ class Coffess
         console.log target + 'Saved'
         console.log source
 
-    _wrapJchInfo: (source, type, indexHash)->
-        @_id = "#{@_prjFp}_#{type}_#{indexHash}"
+    _wrapJchInfo: (source, type)->
+        @_id = "#{@_prjFp}_#{type}"
 
         return "/*_JCH_#{@_id} */\n#{source}/*#{""}_JCH_*/\n"
 
@@ -81,16 +81,18 @@ class Coffess
                         # 显示编译结果
                         console.info stdout
                     # 保存到目标文件
-                    jchSaver.insert self._wrapJchInfo(stdout, type, indexHash),
+                    jchSaver.insert self._wrapJchInfo(stdout, type),
                         target: target
                         id: self._id
                         fileName: self._fp
+                        uid: self._id+indexHash
                 )
             else
-                jchSaver.insert @_wrapJchInfo(source, type, indexHash),
+                jchSaver.insert @_wrapJchInfo(source, type),
                     target: target
                     from: @_fp
                     id: @_id
+                    uid: @_id+indexHash
 
     _resolveJS: (match, arrP..., offset, origin)->
         config = tools.getAttribute arrP[0].trim().replace(/['"]/g, "")
@@ -133,17 +135,18 @@ class Coffess
                         console.log "#{LOG_INFO} Coffee From \"#{self._fp}\""
                         console.info stdout
                     # 插入到目标文件
-                    jchSaver.insert self._wrapJchInfo(stdout, type, indexHash),
+                    jchSaver.insert self._wrapJchInfo(stdout, type),
                         target: target
                         id: self._id
                         fileName: self._fp
+                        uid: self._id+indexHash
                 )
             else
-                jchSaver.insert @_wrapJchInfo(source, type, indexHash),
+                jchSaver.insert @_wrapJchInfo(source, type),
                     target: target
-                    from: @_fp
+                    fileName: @_fp
                     id: @_id
-
+                    uid: @_id+indexHash
 
     # source is now javascript file
     #@_saveTo source, target

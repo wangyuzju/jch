@@ -46,7 +46,11 @@ cache =
             stack[fileName] = {} if !stack[fileName]
             return stack[fileName]['html'] if stack[fileName]['html']
             ## console.error ("readFile(html) #{fileName}")
-            return stack[fileName]['html'] = fs.readFileSync(targetFileName, {encoding: 'utf8'})
+            try
+                oContent = fs.readFileSync(targetFileName, {encoding: 'utf8'})
+            catch err
+                oContent = false
+            return stack[fileName]['html'] = oContent
 
         # handle less and coffee
         if (target = stack[fileName])
@@ -136,14 +140,15 @@ pub =
                             console.log "#{LOG_INFO}[HTML][D] #{target}"
                 else
                     # update origin file
-                    ## console.error "#{LOG_INFO}[HTML][S] #{target}"
+                    console.log "#{LOG_INFO}[HTML][S] #{target}"
                     @._write target, content
             else
                 # new file, check if there is any data to write
                 if content isnt ""
+                    console.log "#{LOG_INFO}[HTML][C] #{target}"
                     # write and then add to svn system
                     @._write target, content
-                    console.log "#{LOG_INFO}[HTML][C] #{target}"
+
 
             cache.update(fileName, 'html', content)
     # exec "svn add #{target}", (err)->
